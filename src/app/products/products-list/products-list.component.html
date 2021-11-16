@@ -1,0 +1,7 @@
+<p>products-list works!</p>
+<ul *ngIf="products$ | async as products else loading">
+  <li *ngFor="let product of products">
+    id: {{product.id}} name: {{product.name}}
+  </li>
+</ul>
+<ng-template #loading>loading...</ng-template>

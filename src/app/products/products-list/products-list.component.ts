@@ -37,5 +37,6 @@ export class ProductsListComponent implements OnInit {
 
   deleteProduct(id: number){
     this.selectedProduct$ = this._productService.deleteProduct(id);
+    window.location.reload();
 }
 }

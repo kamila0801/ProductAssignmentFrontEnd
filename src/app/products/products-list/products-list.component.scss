@@ -44,3 +44,19 @@ h1 {
   margin-bottom: 0;
 }
 
+.img {
+  width: 150px;
+  height: 150px;
+}
+
+.details-child {
+  display: inline-block;
+  padding: 15px;
+}
+
+#hide-text {
+  color: dimgray;
+  cursor: pointer;
+  margin-left: 15px;
+}
+

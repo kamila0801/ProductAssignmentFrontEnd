@@ -13,10 +13,16 @@
 
   <div class="flex-child">
     <div class = "details" *ngIf="selectedProduct$ | async as selectedProduct">
-      <h4>{{selectedProduct.name | uppercase}}</h4>
-      <p>Id: {{selectedProduct.id}}</p>
-      <p>Color: {{selectedProduct.color}}</p>
-      <p>Price: {{selectedProduct.price}}$</p>
+      <div class="details-child">
+        <img class="img" src="https://p.kindpng.com/picc/s/486-4862572_share-pixel-gun-conceptions-here-free-lego-brick.png">
+      </div>
+      <div class="details-child">
+        <h4>{{selectedProduct.name | uppercase}}</h4>
+        <p>Id: {{selectedProduct.id}}</p>
+        <p>Color: {{selectedProduct.color}}</p>
+        <p>Price: {{selectedProduct.price}}$</p>
+      </div>
+      <p id="hide-text" (click)="hideDetails()">click here to hide the details</p>
     </div>
   </div>
 

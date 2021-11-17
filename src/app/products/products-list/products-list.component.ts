@@ -23,4 +23,7 @@ export class ProductsListComponent implements OnInit {
     this.selectedProduct$ = this._productService.getById(id);
   }
 
+  hideDetails() {
+    this.selectedProduct$ = undefined;
+  }
 }

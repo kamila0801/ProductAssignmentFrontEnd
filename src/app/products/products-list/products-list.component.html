@@ -27,6 +27,9 @@
         <p>Color: {{selectedProduct.color}}</p>
         <p>Price: {{selectedProduct.price}}$</p>
       </div>
+      <div class="Delete">
+        <button type="button" (click)="deleteProduct(selectedProduct.id)">Delete</button>
+        </div>
       <p id="hide-text" (click)="hideDetails()">click here to hide the details</p>
     </div>
   </div>

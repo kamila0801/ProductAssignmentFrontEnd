@@ -17,4 +17,8 @@ export class ProductsService {
   getById(id: number): Observable<ProductDto> {
     return this._http.get<ProductDto>("https://localhost:5001/api/Product/"+id);
   }
+
+  deleteProduct(id: number): Observable<ProductDto>{
+    return this._http.delete<ProductDto>("https://localhost:5001/api/Product/"+id)
+  }
 }

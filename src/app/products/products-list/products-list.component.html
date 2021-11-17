@@ -1,7 +1,26 @@
-<p>products-list works!</p>
-<ul *ngIf="products$ | async as products else loading">
-  <li *ngFor="let product of products">
-    id: {{product.id}} name: {{product.name}}
-  </li>
-</ul>
+<div class="flex-container">
+  <div class="flex-child">
+
+    <h1>Products</h1>
+    <p id="description">click a product to see the details</p>
+
+    <ul *ngIf="products$ | async as products else loading">
+      <li *ngFor="let product of products" (click)="getById(product.id)">
+        {{product.name}}
+      </li>
+    </ul>
+  </div>
+
+  <div class="flex-child">
+    <div class = "details" *ngIf="selectedProduct$ | async as selectedProduct">
+      <h4>{{selectedProduct.name | uppercase}}</h4>
+      <p>Id: {{selectedProduct.id}}</p>
+      <p>Color: {{selectedProduct.color}}</p>
+      <p>Price: {{selectedProduct.price}}$</p>
+    </div>
+  </div>
+
+</div>
+
 <ng-template #loading>loading...</ng-template>
+

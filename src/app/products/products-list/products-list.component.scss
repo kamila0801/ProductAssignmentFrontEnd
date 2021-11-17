@@ -1,0 +1,46 @@
+.flex-container {
+  display: flex;
+  margin-left: 50px;
+}
+
+.flex-child {
+  flex: 1;
+  //border: 2px solid yellow;
+}
+
+.flex-child:first-child {
+  margin-right: 20px;
+}
+
+ul {
+  cursor: pointer;
+}
+
+li {
+  padding: 3px;
+}
+
+li:hover {
+  color: cadetblue;
+}
+
+#description {
+  color: dimgray;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1 {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.details {
+  margin-top: 40px;
+}
+
+.details p{
+  padding-bottom: 1px;
+  margin-bottom: 0;
+}
+

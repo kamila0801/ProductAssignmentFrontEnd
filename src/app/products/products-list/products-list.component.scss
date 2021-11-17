@@ -25,7 +25,7 @@ li:hover {
 }
 
 #description {
-  color: dimgray;
+  color: black;
   margin-top: 0;
   padding-top: 0;
 }
@@ -58,5 +58,11 @@ h1 {
   color: dimgray;
   cursor: pointer;
   margin-left: 15px;
+}
+
+.load-more-btn {
+  cursor: pointer;
+  background-color: cadetblue;
+  color: white;
 }
 

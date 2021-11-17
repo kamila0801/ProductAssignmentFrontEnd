@@ -13,10 +13,13 @@ export class ProductsListComponent implements OnInit {
   products$: Observable<ProductDto[]> | undefined;
   selectedProduct$: Observable<ProductDto> | undefined;
 
+  page: number = 1;
+  items: number = 3;
+
   constructor(private _productService: ProductsService) { }
 
   ngOnInit(): void {
-    this.products$ = this._productService.getAll();
+    this.products$ = this._productService.getAll(this.page, this.items);
   }
 
   getById(id: number): void{
@@ -25,5 +28,10 @@ export class ProductsListComponent implements OnInit {
 
   hideDetails() {
     this.selectedProduct$ = undefined;
+  }
+
+  loadMore() {
+    this.items = this.items*2;
+    this.products$ = this._productService.getAll(this.page, this.items);
   }
 }

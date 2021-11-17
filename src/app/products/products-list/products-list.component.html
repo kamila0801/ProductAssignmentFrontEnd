@@ -4,11 +4,16 @@
     <h1>Products</h1>
     <p id="description">click a product to see the details</p>
 
+    <!--label for="items-input">items per page: </--label>
+    <input id="items-input" type="number" min="1" max="5" [(ngModel)]="items"-->
+
     <ul *ngIf="products$ | async as products else loading">
       <li *ngFor="let product of products" (click)="getById(product.id)">
         {{product.name}}
       </li>
     </ul>
+
+    <button class="load-more-btn" (click)="loadMore()">load more</button>
   </div>
 
   <div class="flex-child">

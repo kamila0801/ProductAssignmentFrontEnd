@@ -3,6 +3,7 @@ import {ProductsService} from "../shared/products.service";
 import {ProductDto} from "../shared/product.dto";
 import {take} from "rxjs/operators";
 import {Observable} from "rxjs";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-products-list',
@@ -16,7 +17,8 @@ export class ProductsListComponent implements OnInit {
   page: number = 1;
   items: number = 3;
 
-  constructor(private _productService: ProductsService) { }
+  constructor(private _productService: ProductsService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.products$ = this._productService.getAll(this.page, this.items);
@@ -33,5 +35,9 @@ export class ProductsListComponent implements OnInit {
   loadMore() {
     this.items = this.items*2;
     this.products$ = this._productService.getAll(this.page, this.items);
+  }
+
+  createProduct(){
+    this.router.navigateByUrl('/products/create')
   }
 }

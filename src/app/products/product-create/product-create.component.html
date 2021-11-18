@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <hr>
+      <h4>
+        <button class="btn btn-outline-success"
+        (click)="back()">Back</button>
+        Create Product
+      </h4>
+      <hr>
+    </div>
+    <div class="col-mid-12">
+      <form (ngSubmit)="save()" [formGroup]="productGroup" novalidate>
+        <div class="form-group">
+          <label class="center-block">Name:
+            <input class="form-control" formControlName="productName">
+          </label>
+          <br>
+          <br>
+          <label class="center-block">Color:
+            <input class="form-control" formControlName="productColor">
+          </label>
+          <br>
+          <br>
+          <label class="center-block">Price:
+            <input class="form-control" formControlName="productPrice">
+          </label>
+          <br>
+          <br>
+          <button type="submit" clas="btn btn-outline-info">
+            Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

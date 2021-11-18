@@ -17,4 +17,10 @@ export class ProductsService {
   getById(id: number): Observable<ProductDto> {
     return this._http.get<ProductDto>("https://localhost:5001/api/Product/"+id);
   }
+
+  create(product: ProductDto): Observable<ProductDto>{
+    return this._http.post<ProductDto>("https://localhost:5001/api/Product/",product );
+  }
+
+
 }

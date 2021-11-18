@@ -1,7 +1,13 @@
 <div class="flex-container">
   <div class="flex-child">
 
-    <h1>Products</h1>
+    <h1>Products
+      <div class="pull-right">
+        <button class="btn btn-outline-success" (click)="createProduct()">
+         Add New +
+        </button>
+      </div>
+    </h1>
     <p id="description">click a product to see the details</p>
 
     <!--label for="items-input">items per page: </--label>

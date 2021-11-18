@@ -33,11 +33,16 @@ export class ProductsListComponent implements OnInit {
   }
 
   loadMore() {
-    this.items = this.items*2;
+    this.items = this.items + 3;
     this.products$ = this._productService.getAll(this.page, this.items);
   }
 
   createProduct(){
     this.router.navigateByUrl('/products/create')
   }
+
+  deleteProduct(id: number){
+    this.selectedProduct$ = this._productService.deleteProduct(id);
+    window.location.reload();
+}
 }

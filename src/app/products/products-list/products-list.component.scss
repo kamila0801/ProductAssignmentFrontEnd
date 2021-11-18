@@ -24,6 +24,10 @@ li:hover {
   color: cadetblue;
 }
 
+li .selected {
+  font-weight: bolder;
+}
+
 #description {
   color: black;
   margin-top: 0;

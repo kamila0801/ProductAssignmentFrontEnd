@@ -1,9 +1,10 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import {ProductsService} from "../shared/products.service";
 import {ProductDto} from "../shared/product.dto";
 import {take} from "rxjs/operators";
 import {Observable} from "rxjs";
 import {Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-products-list',
@@ -17,8 +18,7 @@ export class ProductsListComponent implements OnInit {
   page: number = 1;
   items: number = 3;
 
-  constructor(private _productService: ProductsService,
-              private router: Router) { }
+  constructor(private _productService: ProductsService, private router: Router) { }
 
   ngOnInit(): void {
     this.products$ = this._productService.getAll(this.page, this.items);
@@ -45,4 +45,9 @@ export class ProductsListComponent implements OnInit {
     this.selectedProduct$ = this._productService.deleteProduct(id);
     window.location.reload();
 }
+
+  updateProduct(id: number) {
+    this.router.navigateByUrl('/products/update/'+id);
+
+  }
 }

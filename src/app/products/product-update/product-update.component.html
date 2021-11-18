@@ -1,0 +1,12 @@
+<button routerLink="/products">back</button>
+<h2>Update</h2>
+<p>Product id: {{id}}</p>
+
+<form [formGroup]="productForm" (ngSubmit)="save()">
+  <input placeholder="Name" formControlName="name">
+  <input placeholder="Color" formControlName="color">
+  <input placeholder="Price" formControlName="price">
+  <button type="submit">Save</button>
+</form>
+
+<div *ngIf="error">{{error.message}}</div>

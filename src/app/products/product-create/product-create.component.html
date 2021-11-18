@@ -27,10 +27,12 @@
           </label>
           <br>
           <br>
-          <button type="submit" clas="btn btn-outline-info">
+          <button type="submit" class="btn btn-outline-info">
             Save</button>
         </div>
       </form>
+      <div *ngIf="error">{{error.message}}</div>
+      <div *ngIf="saved">product successfully saved</div>
     </div>
   </div>
 </div>

@@ -12,9 +12,9 @@ import {LoginUser} from "../../Shared/login.user";
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
+  error: any | undefined;
 
-  constructor(private _auth: AuthService,
-              private router: Router) {
+  constructor(private _auth: AuthService, private router: Router) {
     this.loginForm = new FormGroup({
       username: new FormControl(
         '',
@@ -37,14 +37,17 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid){
       let userlogin = this.loginForm.value as LoginUser;
       console.log('Login info', userlogin)
+
       this._auth.login(userlogin)
         .subscribe(token=>{
           if (token && token.jwtToken){
-            this.router.navigateByUrl('products')
+            this.router.navigateByUrl('products');
           }
           else {
-            console.log('Login Fail')
+            console.log('Login Fail');
           }
+        }, error => {
+          this.error = error;
         });
     }
   }

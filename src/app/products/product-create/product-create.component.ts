@@ -3,6 +3,7 @@ import {Router} from "@angular/router";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {ProductsService} from "../shared/products.service";
 import {ProductDto} from "../shared/product.dto";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-product-create',
@@ -11,6 +12,8 @@ import {ProductDto} from "../shared/product.dto";
 })
 export class ProductCreateComponent implements OnInit {
   productGroup: FormGroup;
+  error: any | undefined;
+  saved: boolean = false;
 
   constructor(private  router: Router,
               private fb:FormBuilder,
@@ -33,6 +36,8 @@ export class ProductCreateComponent implements OnInit {
 
   save(){
     //console.log('saving customer');
+    this.error = undefined; //reset error for new try
+
     const values = this.productGroup.value;
     const product :ProductDto = {
       id: 0,
@@ -40,7 +45,13 @@ export class ProductCreateComponent implements OnInit {
       price: values.productPrice,
       color: values.productColor
     };
-    this.productService.create(product).subscribe(product =>
-    console.log(product));
+    this.productService.create(product).subscribe(product => {
+      console.log(product);
+      this.saved = true;
+    }, error => {
+      this.error = error;
+      this.saved = false;
+      console.log(error);
+    });
   }
 }

@@ -46,6 +46,12 @@
             type="submit"
             [disabled]="!loginForm.valid">Login</button>
         </div>
+        <div *ngIf="error"
+             class="alert alert-danger">
+          <div>
+            Incorrect password and username combination.
+          </div>
+        </div>
       </form>
     </div>
   </div>

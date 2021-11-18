@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import {ProductUpdateComponent} from "./products/product-update/product-update.component";
 
 
 const routes: Routes = [
@@ -7,12 +8,11 @@ const routes: Routes = [
     path: 'products', loadChildren: () => import('./products/products.module')
       .then(f=>f.ProductsModule)
   },
-
   {
     path: 'auth',
     loadChildren: () => import('./auth/auth.module')
       .then(m => m.AuthModule)
-  }
+  },
 
 ];
 
